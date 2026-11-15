@@ -1,13 +1,23 @@
-SALARY DIMENSIONS PATCH v0.2-excel
+Salary Dimensions v0.3 网页交互补丁
+适用基础版本：GitHub main 分支上的 v0.2（0.2.0）。
 
-请先在已有 salary-dimensions 项目根目录备份/提交原修改：
-  git add .
-  git commit -m "backup: before upgrade"
+本补丁文件：
+- src/salary_dimensions/web_app.py：新增 Streamlit 网页入口
+- tests/test_web_app.py：新增5项网页辅助函数测试
+- pyproject.toml：增加 web 依赖组，版本改为 0.3.0
+- src/salary_dimensions/__init__.py：版本改为 0.3.0
+- docs/WEB_GUIDE.md：网页升级指南
 
-把压缩包内的文件解压并合并到项目根目录（含 pyproject.toml 的目录），同名文件需覆盖。
-不要覆盖或删除 .git、.venv，也不要直接解压到 C:\Users\adol。
-安装：.\.venv\Scripts\python.exe -m pip install -e ".[dev]"
-网页版本还需安装：.\.venv\Scripts\python.exe -m pip install -e ".[dev,web]"
-测试：.\.venv\Scripts\python.exe -m pytest -q
+操作：
+1. 先备份项目，确认 git status 没有未提交修改。
+2. 解压到项目根目录，按目录结构合并；重名文件选择替换。
+3. 不要删除 .git、.venv、parser.py、batch.py、excel.py。
+4. 安装：
+   .\.venv\Scripts\python.exe -m pip install -e ".[dev,web]"
+5. 测试：
+   .\.venv\Scripts\python.exe -m pytest -q
+6. 启动：
+   .\.venv\Scripts\python.exe -m streamlit run src\salary_dimensions\web_app.py
+7. 浏览器打开 http://localhost:8501
 
-详细命令见 docs/UPGRADE_GUIDE.md。
+本补丁只修改本地文件，不会自动向 GitHub 推送。
