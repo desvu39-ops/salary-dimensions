@@ -2,5 +2,5 @@
 
 from .parser import parse_many, parse_salary
 
-__version__ = "0.1.0"
+__version__ = "0.2.0"
 __all__ = ["parse_salary", "parse_many"]

@@ -1,4 +1,4 @@
-# Salary Dimensions — 智能中文薪资解析工具包
+# Salary Dimensions — 智能中文薪资解析工具包（v0.2 Excel）
 
 将招聘网站里的非标准薪资文本转换成便于表格、数据库和分析使用的字段。**Python 3.10+，核心功能仅使用标准库**。
 
@@ -116,3 +116,13 @@ salary-dimensions/
 - V1.0：文档、测试覆盖率、稳定接口、可选 PyPI 发布。
 
 欢迎通过 GitHub Issues 提交无法解析的薪资表达式（请勿包含个人信息）。
+
+
+## v0.2：直接读取 Excel
+
+```cmd
+.\.venv\Scripts\python.exe -m salary_dimensions --input examples\salaries.xlsx --output parsed_salaries.xlsx --sheet 招聘数据 --column salary
+```
+
+使用 `openpyxl`，依赖已包含在 `.[dev]` 中；普通用户可以单独安装 `.[excel]`。输出表只包含选中工作表的数据值和解析字段，**不保留原始单元格样式/图表/公式**，且不允许覆盖输入文件。
+详细说明见 [升级操作手册](docs/UPGRADE_GUIDE.md)。

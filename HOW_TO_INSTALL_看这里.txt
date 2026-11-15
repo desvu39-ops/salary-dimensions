@@ -1,0 +1,20 @@
+﻿Salary Dimensions v0.2 Excel 增量补丁
+
+适用：已安装并成功测试 v0.1 的用户。
+
+操作：
+1. 先在原项目执行 git status，确保已提交旧版本。
+2. 解压本 ZIP，把 ZIP 内所有文件和目录复制进：
+   D:\gongzuo\pythonxunlianying_2611\salary-dimensions
+   选择合并文件夹、覆盖同名文件。请勿覆盖或删除 .git 与 .venv。
+3. 在项目根目录打开 CMD：
+   .\.venv\Scripts\python.exe -m pip install -e ".[dev]"
+   .\.venv\Scripts\python.exe -m pytest -q
+   .\.venv\Scripts\python.exe -m salary_dimensions --input examples\salaries.xlsx --output parsed_salaries.xlsx --sheet 招聘数据 --column salary
+4. 打开 parsed_salaries.xlsx。
+5. 若测试通过，执行：
+   git add .
+   git commit -m "feat: add Excel import and export"
+   git push
+
+验证：在原 v0.1 项目叠加此补丁后，37 项 pytest 测试通过。

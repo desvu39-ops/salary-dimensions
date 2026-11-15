@@ -1,0 +1,13 @@
+SALARY DIMENSIONS PATCH v0.2-excel
+
+请先在已有 salary-dimensions 项目根目录备份/提交原修改：
+  git add .
+  git commit -m "backup: before upgrade"
+
+把压缩包内的文件解压并合并到项目根目录（含 pyproject.toml 的目录），同名文件需覆盖。
+不要覆盖或删除 .git、.venv，也不要直接解压到 C:\Users\adol。
+安装：.\.venv\Scripts\python.exe -m pip install -e ".[dev]"
+网页版本还需安装：.\.venv\Scripts\python.exe -m pip install -e ".[dev,web]"
+测试：.\.venv\Scripts\python.exe -m pytest -q
+
+详细命令见 docs/UPGRADE_GUIDE.md。

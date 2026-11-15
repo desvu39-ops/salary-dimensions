@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "salary-dimensions"
-version = "0.1.0"
+version = "0.2.0"
 description = "Parse Chinese job salary expressions into structured fields"
 readme = "README.md"
 requires-python = ">=3.10"
@@ -17,7 +17,8 @@ classifiers = [
 ]
 
 [project.optional-dependencies]
-dev = ["pytest>=8"]
+excel = ["openpyxl>=3.1"]
+dev = ["pytest>=8", "openpyxl>=3.1"]
 
 [tool.setuptools.packages.find]
 where = ["src"]
